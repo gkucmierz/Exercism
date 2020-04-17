@@ -1,3 +1,11 @@
 pub fn raindrops(n: u32) -> String {
-    unimplemented!("what sound does Raindrop #{} make?", n)
+  let res = format!("{}{}{}",
+    if n % 3 == 0 { "Pling" } else { "" },
+    if n % 5 == 0 { "Plang" } else { "" },
+    if n % 7 == 0 { "Plong" } else { "" }
+  );
+  if res.len() > 0 {
+    return res;
+  }
+  n.to_string()
 }
