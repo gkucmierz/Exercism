@@ -3,6 +3,4 @@
 // convenience to get you started writing code faster.
 //
 
-export const gigasecond = date => {
-  return new Date(+date + 1e12);
-};
+export const gigasecond = date => new Date(+date + 1e12);
