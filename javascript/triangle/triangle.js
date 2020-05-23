@@ -8,10 +8,14 @@ export class Triangle {
     this.a = a;
     this.b = b;
     this.c = c;
+    this.isTriangle = (() => {
+      const s = [a, b, c].sort();
+      return s[2] < s[0] + s[1] && s[0] > 0;
+    })();
   }
 
   isEquilateral() {
-    return this.a === this.b && this.b === this.c && this.a !== 0;
+    return this._isTriangle() && this.a === this.b && this.b === this.c;
   }
 
   _isIsosceles() {
@@ -23,8 +27,7 @@ export class Triangle {
   }
 
   _isTriangle() {
-    const s = [this.a, this.b, this.c].sort();
-    return s[2] < s[0] + s[1];
+    return this.isTriangle;
   }
 
   isIsosceles() {
