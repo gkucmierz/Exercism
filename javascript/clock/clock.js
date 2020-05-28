@@ -4,11 +4,15 @@
 //
 
 const pad = n => ('0' + n).substr(-2);
+const MINUTES_IN_HOUR = 60;
+const HOURS_IN_DAY
 
 export class Clock {
   constructor(hours = 0, minutes = 0) {
-    this.hours = ((hours + Math.floor(minutes / 60)) % 24 + 24) % 24;
-    this.minutes = (minutes % 60 + 60) % 60;
+    this.hours = (
+        (hours + Math.floor(minutes / MINUTES_IN_HOUR))% HOURS_IN_DAY + HOURS_IN_DAY
+      ) % HOURS_IN_DAY;
+    this.minutes = (minutes % MINUTES_IN_HOUR + MINUTES_IN_HOUR) % MINUTES_IN_HOUR;
   }
 
   toString() {
@@ -20,7 +24,7 @@ export class Clock {
   }
 
   minus(minutes) {
-    return new Clock(this.hours, this.minutes - minutes);
+    return this.plus(-minutes);
   }
 
   equals(clock) {
