@@ -13,8 +13,8 @@ export const hey = message => {
   const trimmed = message.trim();
 
   const upper = trimmed === trimmed.toUpperCase() && trimmed.match(/[A-Z]/);
-  const question = trimmed.match(/\?$/);
-  const exclam = trimmed.match(/!$/);
+  const question = trimmed.endsWith`?`;
+  const exclam = trimmed.endsWith`!`;
   const numbers = trimmed.match(/^[0-9\s,!\?]+$/);
   const empty = trimmed === '';
 
@@ -25,6 +25,6 @@ export const hey = message => {
   if (upper) return MSG_WHOA;
   if (exclam) return MSG_WHATEVER;
   if (question) return MSG_SURE;
-  
+
   return MSG_WHATEVER;
 };
