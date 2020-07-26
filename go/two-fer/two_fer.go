@@ -1,10 +1,9 @@
-
-// Package that can produce sentence
+// Package twofer produces string using name
 package twofer
 
 import "fmt"
 
-// Produce share sentence
+// ShareWith produces sharing string using provided name
 func ShareWith(name string) string {
 	if name == "" {
 		name = "you"
