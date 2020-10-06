@@ -10,7 +10,7 @@ export class Squares {
     const arr = new Array(max).fill(0).map((_, i) => i + 1);
     this[dataSym] = [
       arr.reduce((a, b) => a + b ** 2, 0),
-      arr.reduce((a, b) => a + b, 0) ** 2,
+      (max * (max + 1) * 0.5) ** 2,
     ];
   }
 
