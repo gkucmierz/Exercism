@@ -6,23 +6,21 @@
 const dataSym = Symbol();
 
 export class Squares {
-  constructor(max) {
-    const arr = new Array(max).fill(0).map((_, i) => i + 1);
-    this[dataSym] = [
-      arr.reduce((a, b) => a + b ** 2, 0),
-      (max * (max + 1) * 0.5) ** 2,
-    ];
+  constructor(n) {
+    this[dataSym] = n;
   }
 
   get sumOfSquares() {
-    return this[dataSym][0];
+    const n = this[dataSym];
+    return n * (n + 1) * (2 * n + 1) / 6;
   }
 
   get squareOfSum() {
-    return this[dataSym][1];
+    const n = this[dataSym];
+    return (n * (n + 1) * 0.5) ** 2;
   }
 
   get difference() {
-    return this[dataSym][1] - this[dataSym][0];
+    return this.squareOfSum - this.sumOfSquares;
   }
 }
