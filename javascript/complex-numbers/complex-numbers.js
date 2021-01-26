@@ -45,7 +45,7 @@ export class ComplexNumber {
   }
 
   get conj() {
-    return new ComplexNumber(this.real, this.imag === 0 ? 0 : -this.imag);
+    return new ComplexNumber(this.real, 0 - this.imag);
   }
 
   get exp() {
